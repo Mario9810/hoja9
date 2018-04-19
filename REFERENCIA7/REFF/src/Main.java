@@ -18,7 +18,7 @@ public class Main {
 
             System.out.println("ESCOJA EL ARBOL QUE DESEA USAR\n***1. SPLAY TREE\n***2. RED BLACK TREE");
             String opcion = ingreso.nextLine();
-        
+            
         if(opcion.equals("1")){ //Se utiliza SPLAY TREE
             System.out.println("USTED ESCOGIO: SPLAY TREE\nESCOGER DICCIONARIO (PRESIONE ENTER)");
             ingreso.nextLine();
