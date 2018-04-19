@@ -20,9 +20,9 @@ public class RedBlackTreeTest {
      * Test of insert method, of class RedBlackTree.
      */
     @Test
-    public void testInsert() {
+    public void testPut() {
         RedBlackTree<String,String> test = new RedBlackTree<String,String>();
-        test.insert("uno","1");
+        test.put("uno","1");
         assertEquals(1,test.size());
     }
 
@@ -68,7 +68,7 @@ public class RedBlackTreeTest {
     public void testSearch() {
         
         RedBlackTree<String,String> test = new RedBlackTree<String,String>();
-        test.insert("uno","1");
+        test.put("uno","1");
         assertEquals(false,isNull(test.search("uno")));
         
     }

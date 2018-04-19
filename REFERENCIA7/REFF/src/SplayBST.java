@@ -13,7 +13,7 @@
 
 //codigo obtenido de: https://algs4.cs.princeton.edu/33balanced/SplayBST.java.html
 
-public class SplayBST<Key extends Comparable<Key>, Value>  {
+public class SplayBST<Key extends Comparable<Key>, Value> implements BSTree<Key,Value>{
 
     public Node root;   // root of the BST
 
@@ -42,7 +42,15 @@ public class SplayBST<Key extends Comparable<Key>, Value>  {
             display(root.right);
         }
     }
-
+    
+    public void displayFinal(){
+        if(this.root!=null){
+            display(root.left);
+            System.out.print(" " + root.data.toString());
+            display(root.right);
+        }
+    }
+    
     // return value associated with the given key
     // if no such value, return null
     public Value get(Key key) {

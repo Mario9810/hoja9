@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Class Definitions
-public class RedBlackTree<Key extends Comparable<Key>, Value> {
+public class RedBlackTree<Key extends Comparable<Key>, Value> implements BSTree<Key,Value>{
 
 	// Root initialized to nil.
 	private RedBlackNode<Key, Value> nil = new RedBlackNode<Key, Value>();
@@ -167,7 +167,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 	}// end rightRotateFixup(RedBlackNode y)
 
 
-    public void insert(Key key, Value value) {
+    public void put(Key key, Value value) {
         insert(new RedBlackNode<Key, Value>(key,value));
     }
 
@@ -548,7 +548,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
 		x.color = RedBlackNode.BLACK;
 	}// end removeFixup(RedBlackNode x)
 
-        public Value find(Key key){
+        public Value get(Key key){
             RedBlackNode<Key,Value> current = root;
             // While we haven't reached the end of the tree
 		while (!isNil(current)){
@@ -579,6 +579,15 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
             display(root.right);
         }
     }
+    
+    public void displayFinal(){
+        if(this.root!=null){
+            display(root.left);
+            System.out.print(" " + root.data.toString());
+            display(root.right);
+        }
+    }
+    
         
 	// @param: key, the key whose node we want to search for
 	// @return: returns a node with the key, key, if not found, returns null
