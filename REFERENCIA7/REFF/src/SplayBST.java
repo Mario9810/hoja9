@@ -15,15 +15,17 @@
 
 public class SplayBST<Key extends Comparable<Key>, Value>  {
 
-    private Node root;   // root of the BST
+    public Node root;   // root of the BST
 
     // BST helper node data type
     private class Node {
+        Association<Key,Value> data;
         private Key key;            // key
         private Value value;        // associated data
         private Node left, right;   // left and right subtrees
 
         public Node(Key key, Value value) {
+            this.data=new Association<Key,Value>(key,value);
             this.key   = key;
             this.value = value;
         }
@@ -31,6 +33,14 @@ public class SplayBST<Key extends Comparable<Key>, Value>  {
 
     public boolean contains(Key key) {
         return get(key) != null;
+    }
+    
+    public void display(Node root){
+        if(root!=null){
+            display(root.left);
+            System.out.print(" " + root.data.toString());
+            display(root.right);
+        }
     }
 
     // return value associated with the given key
