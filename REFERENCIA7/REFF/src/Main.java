@@ -26,7 +26,7 @@ public class Main {
             JFileChooser chooser = new JFileChooser();
             chooser.setCurrentDirectory(new java.io.File("./src"));
             chooser.setDialogTitle("Seleccione su archivo");
-            chooser.setFileFilter(new FileNameExtensionFilter("Text files (.txt)", "txt"));
+            chooser.setFileFilter(new FileNameExtensionFilter("Text files (.txt)", "dic"));
             int returnVal = chooser.showOpenDialog(null);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
 
@@ -42,8 +42,8 @@ public class Main {
 
                     /* Separar cadenas y hacer asociacion */
                     for (int i = 0; i < dictionary.size(); i++) {
-                        String temp = dictionary.get(i).substring(1, dictionary.get(i).length() - 1);
-                        String[] partes = temp.split(", ");
+                        String temp = dictionary.get(i).substring(0, dictionary.get(i).length());
+                        String[] partes = temp.split("\\s+");
                         dicSP.put(partes[0],partes[1]);
                     }
                 } catch (Exception e) {
@@ -68,13 +68,13 @@ public class Main {
 
                 }
             }
-
-
+            
+            
             try
             {
                 BufferedReader datos = new BufferedReader(new FileReader(source));  // Abre documento 
                 String rawText = datos.readLine(); 
-                rawText = rawText.substring(0, rawText.length()-1);
+                rawText = rawText.substring(0, rawText.length());
                 String textoATraducir = rawText.toLowerCase();
                 datos.close();  // Se finaliza el lector
                 System.out.println("ORIGINAL\n" + textoATraducir);
@@ -116,7 +116,7 @@ public class Main {
             JFileChooser chooser = new JFileChooser();
             chooser.setCurrentDirectory(new java.io.File("./src"));
             chooser.setDialogTitle("Seleccione su archivo");
-            chooser.setFileFilter(new FileNameExtensionFilter("Text files (.txt)", "txt"));
+            chooser.setFileFilter(new FileNameExtensionFilter("Text files (.txt)", "dic"));
             int returnVal = chooser.showOpenDialog(null);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
 
@@ -132,8 +132,8 @@ public class Main {
 
                     /* Separar cadenas y hacer asociacion */
                     for (int i = 0; i < dictionary.size(); i++) {
-                        String temp = dictionary.get(i).substring(1, dictionary.get(i).length() - 1);
-                        String[] partes = temp.split(", ");
+                        String temp = dictionary.get(i).substring(0, dictionary.get(i).length());
+                        String[] partes = temp.split("\\s+ ");
                         dicRBT.insert(partes[0],partes[1]);
                     }
                 } catch (Exception e) {
@@ -164,7 +164,7 @@ public class Main {
             {
                 BufferedReader datos = new BufferedReader(new FileReader(source));  // Abre documento 
                 String rawText = datos.readLine(); 
-                rawText = rawText.substring(0, rawText.length()-1);
+                rawText = rawText.substring(0, rawText.length());
                 String textoATraducir = rawText.toLowerCase();
                 datos.close();  // Se finaliza el lector
                 System.out.println("ORIGINAL\n" + textoATraducir);
